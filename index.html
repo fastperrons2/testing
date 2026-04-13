@@ -61,6 +61,7 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
 
 /* Hero visual */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual img{width:100%;max-width:540px;display:block;mix-blend-mode:normal;filter:drop-shadow(0 20px 60px rgba(59,191,173,0.15)) drop-shadow(0 40px 80px rgba(0,0,0,0.5))}
 .hero-graphic{width:100%;max-width:440px;aspect-ratio:1;position:relative}
 .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(59,191,173,0.12);animation:rs 30s linear infinite}
 .hero-ring:nth-child(1){inset:5%}.hero-ring:nth-child(2){inset:18%;animation-direction:reverse;animation-duration:22s}.hero-ring:nth-child(3){inset:32%;animation-duration:18s}
@@ -89,7 +90,7 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
 /* Client logos */
 .logos-strip{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05)}
 .logos-strip img{height:28px;opacity:0.5;filter:grayscale(1) brightness(2);transition:all 0.3s;object-fit:contain}
-.logos-strip img.logo-bg-fix{filter:grayscale(1) brightness(10) invert(0);mix-blend-mode:screen;opacity:0.6}
+.logos-strip img.logo-bg-fix{filter:grayscale(1) brightness(10);mix-blend-mode:screen;opacity:0.6}
 .logos-strip img.logo-bg-fix:hover{opacity:0.9;mix-blend-mode:normal;filter:grayscale(0) brightness(1)}
 .logos-strip img:hover{opacity:0.85;filter:grayscale(0) brightness(1)}
 
@@ -250,7 +251,7 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
     </div>
   </div>
   <div class="hero-visual">
-    <img src="asset_website.png" alt="Piattaforma Medicilio" style="width:100%;max-width:560px;display:block;filter:drop-shadow(0 24px 48px rgba(0,0,0,0.4))">
+    <img src="asset_website.png" alt="Piattaforma Medicilio">
   </div>
 </div></div>
 </section>
@@ -445,7 +446,6 @@ window.addEventListener('scroll', () => {
   const nav = document.getElementById('nav');
   if (nav) nav.style.background = pageYOffset > 50 ? 'rgba(0,26,51,0.98)' : 'rgba(0,26,51,0.88)';
 });
-
 const toggle = document.querySelector('.nav-toggle');
 const links = document.querySelector('.nav-links');
 if (toggle && links) {
