@@ -125,10 +125,10 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
 
 /* RPM bar chart - FIXED SCALE */
 .rpm-chart{display:flex;align-items:flex-end;gap:14px;height:180px;margin:1.5rem 0 0.5rem;padding:0 0.5rem}
-.rpm-bw{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
-.rpm-b{width:100%;background:var(--gradient-bar);border-radius:4px 4px 0 0;min-height:2px}
-.rpm-bl{font-family:'Lato',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35)}
-.rpm-bv{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;color:var(--teal)}
+.rpm-bw{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.rpm-b{width:100%;background:var(--gradient-bar);border-radius:4px 4px 0 0;min-height:2px;flex-shrink:0}
+.rpm-bl{font-family:'Lato',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.35);flex-shrink:0}
+.rpm-bv{font-family:'Lato',sans-serif;font-size:0.68rem;font-weight:700;color:var(--teal);flex-shrink:0}
 
 /* REGULATORY */
 .regulatory{background:linear-gradient(180deg,#002040 0%,var(--navy-deep) 100%)}
@@ -332,11 +332,11 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
       <h4>Mercato RPM Italia — Forecast 2030</h4><div class="mv">$1.2B</div>
       <p>Accreditate: $312M · Pubbliche: $792M · Private: $96M. I più grandi ospedali accreditati sono già clienti Medicilio.</p>
       <div class="rpm-chart">
-        <div class="rpm-bw"><div class="rpm-bv">$240M</div><div class="rpm-b" style="height:20%"></div><div class="rpm-bl">2026</div></div>
-        <div class="rpm-bw"><div class="rpm-bv">$450M</div><div class="rpm-b" style="height:38%"></div><div class="rpm-bl">2027</div></div>
-        <div class="rpm-bw"><div class="rpm-bv">$640M</div><div class="rpm-b" style="height:53%"></div><div class="rpm-bl">2028</div></div>
-        <div class="rpm-bw"><div class="rpm-bv">$870M</div><div class="rpm-b" style="height:73%"></div><div class="rpm-bl">2029</div></div>
-        <div class="rpm-bw"><div class="rpm-bv">$1.2B</div><div class="rpm-b" style="height:100%"></div><div class="rpm-bl">2030</div></div>
+        <div class="rpm-bw"><div class="rpm-bv">$240M</div><div class="rpm-b" style="height:36px"></div><div class="rpm-bl">2026</div></div>
+        <div class="rpm-bw"><div class="rpm-bv">$450M</div><div class="rpm-b" style="height:68px"></div><div class="rpm-bl">2027</div></div>
+        <div class="rpm-bw"><div class="rpm-bv">$640M</div><div class="rpm-b" style="height:96px"></div><div class="rpm-bl">2028</div></div>
+        <div class="rpm-bw"><div class="rpm-bv">$870M</div><div class="rpm-b" style="height:132px"></div><div class="rpm-bl">2029</div></div>
+        <div class="rpm-bw"><div class="rpm-bv">$1.2B</div><div class="rpm-b" style="height:180px"></div><div class="rpm-bl">2030</div></div>
       </div>
       <div class="msrc">Source: Grand View Research / Horizon — CAGR 36%</div>
     </div>
