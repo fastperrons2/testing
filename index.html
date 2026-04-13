@@ -61,7 +61,6 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
 
 /* Hero visual */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
-.hero-visual img{width:100%;max-width:540px;display:block;mix-blend-mode:normal;filter:drop-shadow(0 20px 60px rgba(59,191,173,0.15)) drop-shadow(0 40px 80px rgba(0,0,0,0.5))}
 .hero-graphic{width:100%;max-width:440px;aspect-ratio:1;position:relative}
 .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(59,191,173,0.12);animation:rs 30s linear infinite}
 .hero-ring:nth-child(1){inset:5%}.hero-ring:nth-child(2){inset:18%;animation-direction:reverse;animation-duration:22s}.hero-ring:nth-child(3){inset:32%;animation-duration:18s}
@@ -219,6 +218,15 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
   .cta-strip{flex-direction:column;text-align:center}
   .cta-number{order:-1}
 }
+
+/* HERO SLIDER */
+.hero-slider{position:relative;width:100%;max-width:560px;overflow:hidden}
+.hero-slider-track{display:flex;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1)}
+.hero-slide-img{min-width:100%;width:100%}
+.hero-slide-img img{width:100%;display:block;filter:drop-shadow(0 20px 60px rgba(59,191,173,0.15)) drop-shadow(0 40px 80px rgba(0,0,0,0.3))}
+.hero-slider-dots{display:flex;gap:6px;justify-content:center;margin-top:1rem}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(59,191,173,0.3);cursor:pointer;transition:all 0.3s;border:none;padding:0}
+.hero-dot.active{background:var(--teal);width:18px;border-radius:3px}
 </style>
 </head>
 <body>
@@ -251,7 +259,16 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
     </div>
   </div>
   <div class="hero-visual">
-    <img src="asset_website.png" alt="Piattaforma Medicilio">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slider-track" id="heroTrack">
+        <div class="hero-slide-img"><img src="asset_website.png" alt="Piattaforma Medicilio — Dashboard e app"></div>
+        <div class="hero-slide-img"><img src="kit_veneto.png" alt="Kit RPM Medicilio — Regione del Veneto"></div>
+      </div>
+      <div class="hero-slider-dots">
+        <button class="hero-dot active" onclick="heroGoTo(0)"></button>
+        <button class="hero-dot" onclick="heroGoTo(1)"></button>
+      </div>
+    </div>
   </div>
 </div></div>
 </section>
@@ -429,11 +446,13 @@ body{font-family:'Lato',sans-serif;color:var(--white);background:var(--navy-deep
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Intersection observer for animations
 const o = new IntersectionObserver(e => {
   e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fi').forEach(e => o.observe(e));
 
+// Nav scroll
 const ss = document.querySelectorAll('.slide');
 const nl = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
@@ -451,6 +470,16 @@ const links = document.querySelector('.nav-links');
 if (toggle && links) {
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 }
+
+// Hero slider
+let heroCurrent = 0;
+const heroTotal = 2;
+function heroGoTo(idx) {
+  heroCurrent = idx;
+  document.getElementById('heroTrack').style.transform = `translateX(-${idx * 100}%)`;
+  document.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+setInterval(() => heroGoTo((heroCurrent + 1) % heroTotal), 4000);
 </script>
 </body>
 </html>
